@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.199.139/sell?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+# 所有json格式为null的不显示
+  jackson:
+    default-property-inclusion: non_null
