@@ -7,5 +7,7 @@ spring:
   jpa:
     show-sql: true
 # 所有json格式为null的不显示
-  jackson:
-    default-property-inclusion: non_null
+#  jackson:
+#    default-property-inclusion: non_null
+server:
+  context-path: /sell
