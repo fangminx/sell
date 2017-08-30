@@ -2,10 +2,10 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: root
+    password: 123456
     url: jdbc:mysql://192.168.199.139/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
-# 所有json格式为null的不显示
+# 鎵�鏈塲son鏍煎紡涓簄ull鐨勪笉鏄剧ず
   jackson:
     default-property-inclusion: non_null
