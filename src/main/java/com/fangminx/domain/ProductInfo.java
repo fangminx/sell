@@ -1,5 +1,6 @@
 package com.fangminx.domain;
 
+import com.fangminx.enums.ProductStatusEnum;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -26,7 +27,7 @@ public class ProductInfo {
 
     private String productIcon; //小图
 
-    private Integer productStatus;  //商品状态,0正常(default)1下架
+    private Integer productStatus= ProductStatusEnum.up.getCode();  //商品状态,0正常(default)1下架
 
     private Integer categoryType;   //类目编号
 
