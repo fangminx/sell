@@ -1,8 +1,10 @@
 package com.fangminx.dto;
 
+import com.fangminx.Util.serializer.Date2LongSerializer;
 import com.fangminx.domain.OrderDetail;
 import com.fangminx.enums.OrderStatusEnum;
 import com.fangminx.enums.PayStatusEnum;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -28,8 +30,10 @@ public class OrderDTO {
 
     private Integer payStatus; //支付状态, 默认未支付0
 
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
 
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
     List<OrderDetail> orderDetailList;

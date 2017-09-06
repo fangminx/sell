@@ -70,8 +70,8 @@ public class OrderServiceImpl implements OrderService {
             orderDetailRepository.save(orderDetail);
 
             OrderMaster orderMaster = new OrderMaster();
+            orderDTO.setOrderId(orderId);
             BeanUtils.copyProperties(orderDTO,orderMaster);
-            orderMaster.setOrderId(orderId);
             orderMaster.setOrderAmount(orderAmount);
             //被BeanUtils覆盖为null，要回写
             orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
