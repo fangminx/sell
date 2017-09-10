@@ -6,6 +6,7 @@ import com.fangminx.dto.OrderDTO;
 import com.fangminx.enums.ResultEnum;
 import com.fangminx.exception.SellException;
 import com.fangminx.form.OrderForm;
+import com.fangminx.service.BuyerService;
 import com.fangminx.service.OrderService;
 import com.fangminx.vo.ResultVO;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +30,9 @@ public class BuyerOrderController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private BuyerService buyerService;
 
     //创建订单
     @PostMapping("/create")
@@ -67,6 +71,21 @@ public class BuyerOrderController {
 
     //订单详情
 
+    @GetMapping("/detail")
+    public ResultVO<OrderDTO> detail(@RequestParam("openid") String openid,
+                                     @RequestParam("orderId") String orderId){
+        // 不安全,需要改进 OrderDTO orderDTO = orderService.findOne(orderId);
+        OrderDTO orderDTO = buyerService.findOrderOne(openid,orderId);
+        return ResultVOUtil.success(orderDTO);
+    }
+
     //取消订单
 
+    @PostMapping("/cancel")
+    public ResultVO cancel(@RequestParam("openid") String openid,
+                           @RequestParam("orderId") String orderId) {
+       //同上改进
+        buyerService.cancelOrder(openid,orderId);
+        return ResultVOUtil.success();
+    }
 }

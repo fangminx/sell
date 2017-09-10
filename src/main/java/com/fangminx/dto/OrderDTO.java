@@ -4,6 +4,7 @@ import com.fangminx.Util.serializer.Date2LongSerializer;
 import com.fangminx.domain.OrderDetail;
 import com.fangminx.enums.OrderStatusEnum;
 import com.fangminx.enums.PayStatusEnum;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
@@ -12,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDTO {
 
     private String orderId;
