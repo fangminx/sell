@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="target/classes"/>
+    <context id="common" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.199.139:3306/sell?useUnicode=true&amp;characterEncoding=utf8"
+                        userId="root" password="123456"/>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--生成Model类存放位置-->
+        <javaModelGenerator targetPackage="com.fangminx.generator.model" targetProject="MAVEN">
+            <property name="enableSubPackages" value="true"/>
+            <property name="constructorBased" value="false"/>
+        </javaModelGenerator>
+        <!--生成映射文件存放位置-->
+        <sqlMapGenerator targetPackage="com.fangminx.generator.mapper" targetProject="MAVEN">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--生成Dao类存放位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.fangminx.generator.mapper"
+                             targetProject="MAVEN">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--<table tableName="`meiya_hotel_product_info`" domainObjectName="MeiyaHotelProductInfoModel">-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="`meiya_hotel_data_price`" domainObjectName="MeiyaHotelDataPriceModel">-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <table tableName="`product_category`" domainObjectName="ProductCategoryModel">
+            <generatedKey column="category_id" sqlStatement="mysql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>
