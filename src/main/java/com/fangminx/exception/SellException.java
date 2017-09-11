@@ -1,7 +1,9 @@
 package com.fangminx.exception;
 
 import com.fangminx.enums.ResultEnum;
+import lombok.Getter;
 
+@Getter
 public class SellException extends RuntimeException {
 
     private Integer code;
